@@ -1,5 +1,8 @@
 package project.decision
 
+import org.graalvm.compiler.graph.Node
+
+import project.problem.BaseProblem
 
 abstract class BaseDecisionAlgorithm (problemToSolve: BaseProblem) {
   private val problem = problemToSolve;
