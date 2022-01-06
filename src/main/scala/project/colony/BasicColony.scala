@@ -18,7 +18,7 @@ class BasicColony (ant_numb: Int,
       ants.append(new BasicAnt(
         startingNode = getRandomNode(problem.nodes),
         problem = problem,
-        decision = new BasicDecisionAlgorithm(problem)
+        decision = new BasicDecisionAlgorithm(problem, pheromoneTable)
       ))
     }
     return ants.toList

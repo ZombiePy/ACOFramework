@@ -8,4 +8,9 @@ class BasePheromoneTable (val edges: List[Edges]) {
     for (edge <- edges) pheromone + (edge -> 0)
   }
   construct_pheromone()
+
+  def getPheromone(edge: Edges): Float = {
+    return pheromone(edge)
+  }
+
 }
