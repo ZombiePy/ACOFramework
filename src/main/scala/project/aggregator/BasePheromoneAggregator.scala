@@ -1,15 +1,15 @@
 package project.aggregator
 
-import org.graalvm.compiler.graph.Node
+import org.graalvm.compiler.graph.{Edges, Node}
 import project.pheromone.BasePheromone
 import project.solution.BaseSolution
 
-abstract class BasePheromoneAggregator (list_of_pheromones: List[BasePheromone]){
-  val pheromones: List[BasePheromone] = list_of_pheromones
+abstract class BasePheromoneAggregator (val pheromones: List[BasePheromone]){
 
-  def evaluate(solutions: List[BaseSolution]): Map[Node, Float] = {
+  def evaluate(solutions: List[BaseSolution]): Map[Edges, Float] = {
     /*
-    Function to aggregate multiple pheromones in to single value per problem Node
+    Function to aggregate multiple pheromones in to single value per problem Egde
      */
   }
+
 }

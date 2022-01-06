@@ -2,10 +2,10 @@ package project.colony
 
 import project.ant.BaseAnt
 
-abstract class BaseColony (AntNumb: Int) {
+abstract class BaseColony (ant_numb: Int) {
   var ants: List[BaseAnt] = createAnts()
 
-  def run(): None = {
+  def run() = {
     /*
     Function that runs all ants to create solutions
      */

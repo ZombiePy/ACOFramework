@@ -5,13 +5,11 @@ import org.graalvm.compiler.graph.Node
 import project.decision.BaseDecisionAlgorithm
 import project.problem.BaseProblem
 
-abstract class BaseAnt (startingNode: Node, problem: BaseProblem, decision: BaseDecisionAlgorithm) {
+abstract class BaseAnt (startingNode: Node, val problem: BaseProblem, val decision: BaseDecisionAlgorithm) {
   var currentNode: Node = startingNode
-  val problemToSolve: BaseProblem = problem
-  val decisionAlgorithm: BaseDecisionAlgorithm = decision
-  var visitedNodes: List[Node]
+  var visitedNodes: List[Node] = List()
 
-  def run(): None = {
+  def run() = {
     /*
     Function that make decision about next move of ant
     change currentNode to chosen one and add it to visitedNodes list

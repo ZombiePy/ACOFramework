@@ -4,8 +4,7 @@ import org.graalvm.compiler.graph.Node
 
 import project.problem.BaseProblem
 
-abstract class BaseDecisionAlgorithm (problemToSolve: BaseProblem) {
-  private val problem = problemToSolve;
+abstract class BaseDecisionAlgorithm ( val problem: BaseProblem) {
 
   def decide(currentNode: Node, visitedNodes: List[Node]): Node = {
     /* Function that make decision for the next ant step
