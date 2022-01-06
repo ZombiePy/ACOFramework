@@ -3,7 +3,7 @@ package project.pheromone
 import org.graalvm.compiler.graph.{Edges, Node}
 
 class BasePheromoneTable (val edges: List[Edges]) {
-  val pheromone = Map()
+  val pheromone = Map[Edges, Int]()
   def construct_pheromone(): Unit = {
     for (edge <- edges) pheromone + (edge -> 0)
   }

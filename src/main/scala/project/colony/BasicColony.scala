@@ -28,6 +28,4 @@ class BasicColony (ant_numb: Int,
     val random = new Random
     return list(random.nextInt(list.length))
   }
-
-  override var ants: List[BaseAnt] = createAnts()
 }
