@@ -10,6 +10,7 @@ abstract class BasePheromoneAggregator (val pheromones: List[BasePheromone]){
     /*
     Function to aggregate multiple pheromones in to single value per problem Egde
      */
+    ???
   }
 
 }

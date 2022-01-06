@@ -12,6 +12,7 @@ abstract class BaseDecisionAlgorithm ( val problem: BaseProblem) {
     currentNode - node that ant is currently in
     visitedNodes - all visited by ant nodes in previous steps
      */
+    ???
   }
 
 

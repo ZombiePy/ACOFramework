@@ -12,6 +12,7 @@ abstract class BaseAlgorithm (
     /*
     Function that run whole ACO and produce results
      */
+    ???
   }
 
 

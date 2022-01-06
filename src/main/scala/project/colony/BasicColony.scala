@@ -1,28 +1,33 @@
 package project.colony
 
 import org.graalvm.compiler.graph.Node
-import project.ant.BasicAnt
+import project.ant.{BaseAnt, BasicAnt}
+import project.decision.BasicDecisionAlgorithm
 import project.problem.BaseProblem
 
+import scala.collection.mutable.ListBuffer
 import scala.util.Random
 
-class BasicColony (val ant_numb: Int,
-                   val problem: BaseProblem
-  ) extends BaseColony (ant_numb) {
+class BasicColony (ant_numb: Int,
+                   problem: BaseProblem
+  ) extends BaseColony (ant_numb, problem){
 
-  override createAnts() = {
-    val ants = List()
-    for (iter <- 0 until  ant_numb) ants + new BasicAnt(
-      startingNode = getRandomNode(problem.nodes),
-      problem = problem,
-      decision = new BasicDecisionAlgorithm(
-        problem = problem
-      )
-    )
+  override def createAnts(): List[BaseAnt] = {
+    val ants = ListBuffer[BaseAnt]()
+    for (_ <- 0 until  ant_numb) {
+      ants.append(new BasicAnt(
+        startingNode = getRandomNode(problem.nodes),
+        problem = problem,
+        decision = new BasicDecisionAlgorithm(problem)
+      ))
+    }
+    return ants.toList
   }
 
   def getRandomNode(list: List[Node]): Node = {
     val random = new Random
     return list(random.nextInt(list.length))
   }
+
+  override var ants: List[BaseAnt] = createAnts()
 }

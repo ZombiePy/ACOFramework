@@ -9,6 +9,7 @@ abstract class BasePheromone {
     /*
     Function to evaluate pheromone value per egde, based on solutions
      */
+    ???
   }
 
 }

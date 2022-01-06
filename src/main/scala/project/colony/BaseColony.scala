@@ -1,9 +1,13 @@
 package project.colony
 
 import project.ant.BaseAnt
+import project.pheromone.BasePheromoneTable
+import project.problem.BaseProblem
 
-abstract class BaseColony (ant_numb: Int) {
+abstract class BaseColony (ant_numb: Int,
+                           problem: BaseProblem) {
   var ants: List[BaseAnt] = createAnts()
+  val pheromoneTable = new BasePheromoneTable(problem.edges)
 
   def run() = {
     /*
@@ -15,5 +19,6 @@ abstract class BaseColony (ant_numb: Int) {
     /*
     Function to place ants
      */
+    ???
   }
 }
