@@ -1,13 +1,11 @@
 package project.problem
 
 import jdk.jshell.spi.ExecutionControl.NotImplementedException
-import org.graalvm.compiler.graph.Edges
-import org.graalvm.compiler.graph.Node
 import project.aggregator.BasePheromoneAggregator
 import project.pheromone.BasePheromoneTable
+import project.graph.{Edge, Node}
 
-abstract class BaseProblem (val nodes: List[Node],
-                            val edges: List[Edges]) {
+abstract class BaseProblem(val nodes: List[Node], val edges: List[Edge]) {
 
   def evaluate(solution: List[Node]) = {
     /*
@@ -16,7 +14,10 @@ abstract class BaseProblem (val nodes: List[Node],
     ???
   }
 
-  def getPossibleMoves(current_node: Node, visited_nodes: List[Node]): List[Node] = {
+  def getPossibleMoves(
+      current_node: Node,
+      visited_nodes: List[Node]
+  ): List[Node] = {
     /*
     Function that return all possible moves to ant, based on visited nodes
      */
