@@ -7,7 +7,7 @@ import project.graph.{Edge, Node}
 
 abstract class BaseProblem(val nodes: List[Node], val edges: List[Edge]) {
 
-  def evaluate(solution: List[Node]) = {
+  def evaluate(solution: List[Node]): List[Double] = {
     /*
     Function to evaluate solution in to float
      */

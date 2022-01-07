@@ -1,3 +1,3 @@
 package project.graph
 
-case class Node(number: Int)
+case class Node(number: String)
