@@ -1,10 +1,10 @@
 package project.decision
 
-import org.graalvm.compiler.graph.Node
+import project.graph.{Edge, Node}
 
 import project.problem.BaseProblem
 
-abstract class BaseDecisionAlgorithm ( val problem: BaseProblem) {
+abstract class BaseDecisionAlgorithm(val problem: BaseProblem) {
 
   def decide(currentNode: Node, visitedNodes: List[Node]): Node = {
     /* Function that make decision for the next ant step
@@ -14,6 +14,5 @@ abstract class BaseDecisionAlgorithm ( val problem: BaseProblem) {
      */
     ???
   }
-
 
 }
