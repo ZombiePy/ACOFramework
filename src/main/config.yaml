@@ -1,4 +1,4 @@
 problem:
-  - mtsp\dimacs_15_a.tsp
-  - mtsp\dimacs_15_b.tsp
-  - mtsp\dimacs_15_c.tsp
+  - mtsp//dimacs_15_a.tsp
+  - mtsp//dimacs_15_b.tsp
+  - mtsp//dimacs_15_c.tsp

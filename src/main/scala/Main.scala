@@ -10,14 +10,15 @@ import tsp.TspsToMtsp
 
 object Main {
   def main(args: Array[String]): Unit = {
-    val filename = "src\\main\\config.yaml"
+    println(System.getProperty("user.dir"))
+    val filename = "src//main//config.yaml"
     val input = new FileInputStream(new File(filename))
     val yaml = new Yaml(new Constructor(classOf[ProblemConfig]))
     val e = yaml.load(input).asInstanceOf[ProblemConfig]
     val tsps = for {
       file <- asScalaBuffer(e.problem)
     } yield {
-      TspReader.read(new File("src\\main\\resources\\" ++ file))
+      TspReader.read(new File("src//main//resources//" ++ file))
     }
     val mtsp = TspsToMtsp(tsps)
   }
