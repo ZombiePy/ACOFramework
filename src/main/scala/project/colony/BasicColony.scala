@@ -13,10 +13,11 @@ class BasicColony(ant_numb: Int, problem: BaseProblem)
 
   override def createAnts(): List[BaseAnt] = {
     val ants = ListBuffer[BaseAnt]()
+    val startingNode = problem.nodes.head
     for (_ <- 0 until ant_numb) {
       ants.append(
         new BasicAnt(
-          startingNode = getRandomNode(problem.nodes),
+          startingNode = startingNode,
           problem = problem,
           decision = new BasicDecisionAlgorithm(problem, pheromoneTable)
         )
@@ -24,9 +25,5 @@ class BasicColony(ant_numb: Int, problem: BaseProblem)
     }
     return ants.toList
   }
-
-  def getRandomNode(list: List[Node]): Node = {
-    val random = new Random
-    return list(random.nextInt(list.length))
-  }
+  override def run() = ???
 }

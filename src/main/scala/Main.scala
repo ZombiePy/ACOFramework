@@ -7,6 +7,7 @@ import scala.beans.BeanProperty
 import java.io.FileInputStream
 import tsp.TspReader
 import tsp.TspsToMtsp
+import project.algorithm.BasicAlgorithm
 
 object Main {
   def main(args: Array[String]): Unit = {
@@ -21,6 +22,8 @@ object Main {
       TspReader.read(new File("src//main//resources//" ++ file))
     }
     val mtsp = TspsToMtsp(tsps)
+    val algo = BasicAlgorithm(100, mtsp)
+    algo.run()
   }
 }
 class ProblemConfig {

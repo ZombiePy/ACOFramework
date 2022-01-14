@@ -9,19 +9,23 @@ abstract class BaseProblem(val nodes: List[Node], val edges: List[Edge]) {
 
   def evaluate(solution: List[Node]): List[Double] = {
     /*
-    Function to evaluate solution in to float
+    Function to evaluate solution into float
      */
     ???
   }
-
+  /*
+  Function that return all possible moves to ant, based on visited nodes
+  */
   def getPossibleMoves(
-      current_node: Node,
       visited_nodes: List[Node]
-  ): List[Node] = {
+  ): Set[Node] = {
+
+    ???
+  }
+  def getHeuristicValue(edge: Edge): List[Double] = {
     /*
-    Function that return all possible moves to ant, based on visited nodes
+    Function to evaluate dinstance between nodes into doubles depending from problem dimension
      */
     ???
   }
-
 }
