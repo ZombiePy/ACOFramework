@@ -1,13 +1,16 @@
 package project.ant
 
 import org.graalvm.compiler.graph.Node
-
 import project.decision.BaseDecisionAlgorithm
 import project.problem.BaseProblem
+import project.solution.BaseSolution
+
+import scala.collection.mutable.ListBuffer
 
 abstract class BaseAnt (startingNode: Node, val problem: BaseProblem, val decision: BaseDecisionAlgorithm) {
   var currentNode: Node = startingNode
-  var visitedNodes: List[Node] = List()
+  var visitedNodes: ListBuffer[Node] = ListBuffer[Node]()
+  visitedNodes.append(currentNode)
 
   def run() = {
     /*
@@ -17,7 +20,7 @@ abstract class BaseAnt (startingNode: Node, val problem: BaseProblem, val decisi
     ???
   }
 
-  def evaluateSolution(): Float = {
+  def evaluateSolution(): BaseSolution = {
     /*
     Prepare solution from gathered information
     needs to send information to problem to update pheromone

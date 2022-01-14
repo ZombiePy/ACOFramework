@@ -16,7 +16,7 @@ abstract class BaseProblem (val nodes: List[Node],
     ???
   }
 
-  def getPossibleMoves(current_node: Node, visited_nodes: List[Node]): List[Node] = {
+  def getPossibleMoves(current_node: Node, visited_nodes: List[Node]): List[Edges] = {
     /*
     Function that return all possible moves to ant, based on visited nodes
      */

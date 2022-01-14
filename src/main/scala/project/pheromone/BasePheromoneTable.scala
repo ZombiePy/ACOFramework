@@ -1,6 +1,7 @@
 package project.pheromone
 
 import org.graalvm.compiler.graph.{Edges, Node}
+import project.aggregator.BasePheromoneAggregator
 
 class BasePheromoneTable (val edges: List[Edges]) {
   val pheromone = Map[Edges, Int]()
