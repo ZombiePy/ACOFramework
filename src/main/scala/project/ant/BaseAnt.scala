@@ -1,11 +1,15 @@
 package project.ant
 
-import org.graalvm.compiler.graph.Node
+import project.graph.{Edge, Node}
 
 import project.decision.BaseDecisionAlgorithm
 import project.problem.BaseProblem
 
-abstract class BaseAnt (startingNode: Node, val problem: BaseProblem, val decision: BaseDecisionAlgorithm) {
+abstract class BaseAnt(
+    startingNode: Node,
+    val problem: BaseProblem,
+    val decision: BaseDecisionAlgorithm
+) {
   var currentNode: Node = startingNode
   var visitedNodes: List[Node] = List()
 
