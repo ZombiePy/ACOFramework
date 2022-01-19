@@ -1,13 +1,12 @@
 package project.decision
 
-import org.graalvm.compiler.graph.{Edges, Node}
-import project.pheromone.BasePheromoneTable
+import project.graph.{Edge, Node}
+
 import project.problem.BaseProblem
 
-abstract class BaseDecisionAlgorithm (val problem: BaseProblem,
-                                      val pheromoneTable: BasePheromoneTable) {
+abstract class BaseDecisionAlgorithm(val problem: BaseProblem) {
 
-  def decide(possibleMoves: List[Edges]): Edges = {
+  def decide(visitedNodes: List[Node]): Node = {
     /* Function that make decision for the next ant step
     Parameters:
     currentNode - node that ant is currently in
@@ -15,6 +14,5 @@ abstract class BaseDecisionAlgorithm (val problem: BaseProblem,
      */
     ???
   }
-
 
 }
