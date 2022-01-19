@@ -4,6 +4,7 @@ import project.aggregator.BasicPheromoneAggregator
 import project.ant.BaseAnt
 import project.pheromone.BasePheromoneTable
 import project.problem.BaseProblem
+import project.solution.BaseSolution
 
 abstract class BaseColony(
     ant_numb: Int,
@@ -14,7 +15,7 @@ abstract class BaseColony(
   // val pheromoneAggregator = new BasicPheromoneAggregator()
   /** Function that runs all ants to create solutions
     */
-  def run(): Unit
+  def run(): List[BaseSolution]
 
   /** Function to place ants
     */
