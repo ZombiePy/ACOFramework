@@ -20,17 +20,26 @@ class BasicColony(ant_numb: Int, problem: BaseProblem)
         new BasicAnt(
           startingNode = startingNode,
           problem = problem,
-          decision = new BasicDecisionAlgorithm(problem, pheromoneTable)
+          decision = new BasicDecisionAlgorithm(problem, pheromoneTable),
+          pheromoneWeights = [0.34, 0.33, 0.33],
+          distanceWeights = [0.34, 0.33, 0.33]
         )
       )
     }
     return ants.toList
   }
+
   override def run() = {
     var solutions: List[BaseSolutions] = List[BaseSolution]()
     for (ant <- ants) = {
       val solution: BaseSolution = ant.run()
       solutions :+ solution
     }
+  }
+
+  def pheromoneUpdate(solutions: List[BaseSolution]) = {
+      for (solution <- solutions) {
+        pheromoneTable.pheromoneUpdate()
+      }
   }
 }

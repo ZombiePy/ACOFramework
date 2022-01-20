@@ -1,6 +1,8 @@
 package project.pheromone
 
 import project.graph.{Edge, Node}
+import project.solution.BaseSolution
+
 class BasePheromoneTable(val edges: List[Edge]) {
   val pheromone = Map[Edge, Int]()
   def construct_pheromone(): Unit = {
@@ -10,6 +12,12 @@ class BasePheromoneTable(val edges: List[Edge]) {
 
   def getPheromone(edge: Edge): Float = {
     return pheromone(edge)
+  }
+
+  def pheromoneUpdate(solution: BaseSolution) {
+    for (nodePair <- solution.solution.sliding(2)){
+      ???
+    }
   }
 
 }

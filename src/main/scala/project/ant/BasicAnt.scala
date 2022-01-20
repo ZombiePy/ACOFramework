@@ -8,7 +8,9 @@ import project.solution.BaseSolution
 class BasicAnt(
     startingNode: Node,
     problem: BaseProblem,
-    decision: BaseDecisionAlgorithm
+    decision: BaseDecisionAlgorithm,
+    val pheromoneWeights: List[Float],
+    val distanceWeights: List[Float]
 ) extends BaseAnt(
       startingNode,
       problem,
