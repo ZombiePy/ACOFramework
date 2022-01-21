@@ -41,5 +41,6 @@ class BasicColony(ant_numb: Int, problem: BaseProblem)
       for (solution <- solutions) {
         pheromoneTable.pheromoneUpdate()
       }
+      pheromoneTable.pheromoneExtinction()
   }
 }
