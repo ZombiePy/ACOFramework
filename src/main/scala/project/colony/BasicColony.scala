@@ -35,12 +35,13 @@ class BasicColony(ant_numb: Int, problem: BaseProblem)
       val solution: BaseSolution = ant.run()
       solutions :+ solution
     }
+    solutions
   }
 
   def pheromoneUpdate(solutions: List[BaseSolution]) = {
-      for (solution <- solutions) {
-        pheromoneTable.pheromoneUpdate()
-      }
-      pheromoneTable.pheromoneExtinction()
+    for (solution <- solutions) {
+      pheromoneTable.pheromoneUpdate()
+    }
+    pheromoneTable.pheromoneExtinction()
   }
 }
