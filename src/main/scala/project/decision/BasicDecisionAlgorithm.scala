@@ -6,8 +6,7 @@ import project.problem.BaseProblem
 
 class BasicDecisionAlgorithm(
     problem: BaseProblem,
-    val weights: List[Double],
-    val pheromoneTable: BasePheromoneTable
+    pheromoneTable: BasePheromoneTable
 ) extends BaseDecisionAlgorithm(problem) {
 
   // def getPossibleNodes(
@@ -56,8 +55,11 @@ class BasicDecisionAlgorithm(
 
   //   ???
   // }
-
-  override def decide(visited_nodes: List[Node]): Node = {
+  def decide(
+      visitedNodes: List[Node],
+      pheromoneWeights: List[Double],
+      distanceWeights: List[Double]
+  ): Node = {
     // val possible_moves = getPossibleNodes(visited_nodes)
 
     ???

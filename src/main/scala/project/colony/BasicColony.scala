@@ -13,20 +13,26 @@ import project.pheromone.BasePheromoneTable
 class BasicColony(
     ant_numb: Int,
     problem: BaseProblem,
-    pheromoneTable: BasePheromoneTable
+    pheromoneTable: BasePheromoneTable,
+    distanceWeights: List[Double],
+    pheromoneWeights: List[Double]
 ) extends BaseColony(ant_numb, problem, pheromoneTable) {
 
   override def createAnts(): List[BaseAnt] = {
     val ants = ListBuffer[BaseAnt]()
     val startingNode = problem.nodes.head
-    val pheromoneWeights = List(0.34, 0.33, 0.33)
-    val distanceWeights = List(0.34, 0.33, 0.33)
+
     for (_ <- 0 until ant_numb) {
       ants.append(
         new BasicAnt(
           startingNode = startingNode,
           problem = problem,
-          decision = new BasicDecisionAlgorithm(problem, distanceWeights, pheromoneTable)
+          decision = new BasicDecisionAlgorithm(
+            problem,
+            pheromoneTable
+          ),
+          distanceWeights = distanceWeights,
+          pheromoneWeights = pheromoneWeights
         )
       )
     }

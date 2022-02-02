@@ -10,6 +10,10 @@ abstract class BaseDecisionAlgorithm(val problem: BaseProblem) {
     *   - node that ant is currently in visitedNodes - all visited by ant nodes
     *     in previous steps
     */
-  def decide(visitedNodes: List[Node]): Node
+  def decide(
+      visitedNodes: List[Node],
+      pheromoneWeights: List[Double],
+      distanceWeights: List[Double]
+  ): Node
 
 }

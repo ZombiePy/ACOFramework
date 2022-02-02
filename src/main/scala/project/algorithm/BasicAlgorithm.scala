@@ -5,7 +5,7 @@ import project.problem.BaseProblem
 import project.colony.BasicColony
 import project.solution.BaseSolution
 import project.repo.BasicSolutionRepo
-import project.pheromone.BasePheromoneTable
+import project.pheromone.BasicPheromoneTable
 
 class BasicAlgorithm(
     ant_numb: Int,
@@ -17,8 +17,21 @@ class BasicAlgorithm(
   override def run(): Unit = {
     val increment = 1
     val extinction = 0.5
-    val pheromone = BasePheromoneTable(problem.edges, increment, extinction)
-    val colony = BasicColony(ant_numb, problem, pheromone)
+    val distanceWeights = List(0.34, 0.33, 0.33)
+    val pheromoneWeights = List(0.34, 0.33, 0.33)
+    val pheromone = BasicPheromoneTable(
+      problem.edges,
+      increment,
+      extinction,
+      pheromoneWeights.size
+    )
+    val colony = BasicColony(
+      ant_numb,
+      problem,
+      pheromone,
+      distanceWeights,
+      pheromoneWeights
+    )
     for (iteration <- 0 until iterations) {
       val soutions: List[BaseSolution] = colony.run()
       // solutionRepo.add_solutions(iteration, solutions)

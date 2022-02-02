@@ -8,9 +8,9 @@ import project.solution.BaseSolution
 class BasicAnt(
     startingNode: Node,
     problem: BaseProblem,
-    decision: BaseDecisionAlgorithm
-    // val pheromoneWeights: List[Float],
-    // val distanceWeights: List[Float]
+    decision: BaseDecisionAlgorithm,
+    val pheromoneWeights: List[Double],
+    val distanceWeights: List[Double]
 ) extends BaseAnt(
       startingNode,
       problem,
@@ -18,7 +18,8 @@ class BasicAnt(
     ) {
   override def run() = {
     while (true) {
-      val next_move = decision.decide(visitedNodes)
+      val next_move =
+        decision.decide(visitedNodes, pheromoneWeights, distanceWeights)
 
       // if (next_move == None) {
       //   return evaluateSolution()
