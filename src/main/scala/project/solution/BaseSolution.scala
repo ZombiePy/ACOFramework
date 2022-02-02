@@ -1,6 +1,6 @@
 package project.solution
 
-import org.graalvm.compiler.graph.Node
+import project.graph.Node
 
 class BaseSolution(nodes: List[Node], value: List[Double]) {
   val solution: List[Node] = nodes

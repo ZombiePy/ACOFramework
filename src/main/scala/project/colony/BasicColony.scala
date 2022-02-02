@@ -8,21 +8,25 @@ import project.solution.BaseSolution
 
 import scala.collection.mutable.ListBuffer
 import scala.util.Random
+import project.pheromone.BasePheromoneTable
 
-class BasicColony(ant_numb: Int, problem: BaseProblem)
-    extends BaseColony(ant_numb, problem) {
+class BasicColony(
+    ant_numb: Int,
+    problem: BaseProblem,
+    pheromoneTable: BasePheromoneTable
+) extends BaseColony(ant_numb, problem, pheromoneTable) {
 
   override def createAnts(): List[BaseAnt] = {
     val ants = ListBuffer[BaseAnt]()
     val startingNode = problem.nodes.head
+    val pheromoneWeights = List(0.34, 0.33, 0.33)
+    val distanceWeights = List(0.34, 0.33, 0.33)
     for (_ <- 0 until ant_numb) {
       ants.append(
         new BasicAnt(
           startingNode = startingNode,
           problem = problem,
-          decision = new BasicDecisionAlgorithm(problem, pheromoneTable),
-          pheromoneWeights = [0.34, 0.33, 0.33],
-          distanceWeights = [0.34, 0.33, 0.33]
+          decision = new BasicDecisionAlgorithm(problem, distanceWeights, pheromoneTable)
         )
       )
     }
@@ -30,8 +34,8 @@ class BasicColony(ant_numb: Int, problem: BaseProblem)
   }
 
   override def run() = {
-    var solutions: List[BaseSolutions] = List[BaseSolution]()
-    for (ant <- ants) = {
+    var solutions: List[BaseSolution] = List[BaseSolution]()
+    for (ant <- ants) {
       val solution: BaseSolution = ant.run()
       solutions :+ solution
     }
@@ -39,9 +43,7 @@ class BasicColony(ant_numb: Int, problem: BaseProblem)
   }
 
   def pheromoneUpdate(solutions: List[BaseSolution]) = {
-    for (solution <- solutions) {
-      pheromoneTable.pheromoneUpdate()
-    }
+    solutions.foreach(pheromoneTable.pheromoneUpdate)
     pheromoneTable.pheromoneExtinction()
   }
 }

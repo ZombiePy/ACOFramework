@@ -22,8 +22,10 @@ object Main {
       TspReader.read(new File("src//main//resources//" ++ file))
     }
     val mtsp = TspsToMtsp(tsps)
-    val algo = BasicAlgorithm(100, mtsp)
-    algo.run()
+    val ants_number = 100
+    val algorithm_iterations = 10
+    val algo = BasicAlgorithm(ants_number, mtsp, algorithm_iterations)
+    // algo.run()
   }
 }
 class ProblemConfig {

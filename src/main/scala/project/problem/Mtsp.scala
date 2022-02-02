@@ -19,7 +19,7 @@ class Mtsp(nodes: List[Node], val matrices: List[Map[(Node, Node), Double]])
   ): Set[Node] = {
     return allNodes diff visited_nodes.toSet
   }
-  override def getDistance(edge: Edge) =
+  override def getHeuristicValue(edge: Edge) =
     matrices.map(matrix => matrix((edge.node1, edge.node2)))
 
 }

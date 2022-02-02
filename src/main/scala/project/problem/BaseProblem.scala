@@ -7,25 +7,18 @@ import project.graph.{Edge, Node}
 
 abstract class BaseProblem(val nodes: List[Node], val edges: List[Edge]) {
 
-  def evaluate(solution: List[Node]): List[Double] = {
-    /*
-    Function to evaluate solution into float
-     */
-    ???
-  }
-  /*
-  Function that return all possible moves to ant, based on visited nodes
-  */
+  /** Function to evaluate solution into float
+    */
+  def evaluate(solution: List[Node]): List[Double]
+
+  /** Function that return all possible moves to ant, based on visited nodes
+    */
   def getPossibleMoves(
       visited_nodes: List[Node]
-  ): Set[Node] = {
+  ): Set[Node]
 
-    ???
-  }
-  def getHeuristicValue(edge: Edge): List[Double] = {
-    /*
-    Function to evaluate dinstance between nodes into doubles depending from problem dimension
-     */
-    ???
-  }
+  /** Function to evaluate diystance between nodes into doubles depending from
+    * problem dimension
+    */
+  def getHeuristicValue(edge: Edge): List[Double]
 }
