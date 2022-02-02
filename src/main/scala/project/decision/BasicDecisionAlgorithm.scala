@@ -12,11 +12,7 @@ class BasicDecisionAlgorithm(
 
   // def getPossibleNodes(
   //     visited_nodes: List[Node]
-  // ): List[Node] = {
-  //   val possible_moves: List[Node] =
-  //     problem.getPossibleMoves(visited_nodes).toList
-  //   return possible_moves
-  // }
+  // ): List[Node] = problem.getPossibleMoves(visited_nodes).toList
 
   // def assessment(
   //     edgeToPheromone: Map[(CityName, CityName), Double],
@@ -41,24 +37,25 @@ class BasicDecisionAlgorithm(
   //   }.sum
   //   numerator / denominator
   // }
-  def getProbabilities(
-      current_node: Node,
-      possible_moves: List[Node]
-  ): Map[Node, Float] = {
-    // (for {
-    //   m <- possible_moves
-    // } yield {
-    //   val ass: (CityName, CityName) => Double =
-    //     assessment(edgeToPheromone, edgeToDistance, alpha, beta, notVisied)
-    //   val mAsses: Double = ass(i, m)
-    //   val sumAsses: Double = notVisied.map { n => ass(i, n) }.sum
-    //   (m, mAsses / sumAsses)
-    // }).toMap
-    /*
-    Getting probabilities based on pheromone and cost of edge
-     */
-    ???
-  }
+
+  // /** Getting probabilities based on pheromone and cost of edge
+  //   */
+  // def getProbabilities(
+  //     current_node: Node,
+  //     possible_moves: List[Node]
+  // ): Map[Node, Double] = {
+  //   (for {
+  //     m <- possible_moves
+  //   } yield {
+  //     val ass: (CityName, CityName) => Double =
+  //       assessment(edgeToPheromone, edgeToDistance, alpha, beta, notVisied)
+  //     val mAsses: Double = ass(i, m)
+  //     val sumAsses: Double = notVisied.map { n => ass(i, n) }.sum
+  //     (m, mAsses / sumAsses)
+  //   }).toMap
+
+  //   ???
+  // }
 
   override def decide(visited_nodes: List[Node]): Node = {
     // val possible_moves = getPossibleNodes(visited_nodes)

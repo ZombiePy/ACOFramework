@@ -25,7 +25,7 @@ object Main {
     val ants_number = 100
     val algorithm_iterations = 10
     val algo = BasicAlgorithm(ants_number, mtsp, algorithm_iterations)
-    // algo.run()
+    algo.run()
   }
 }
 class ProblemConfig {

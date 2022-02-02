@@ -7,7 +7,7 @@ import project.graph.{Edge, Node}
 
 abstract class BaseProblem(val nodes: List[Node], val edges: List[Edge]) {
 
-  /** Function to evaluate solution into float
+  /** Function to evaluate solution into list of double
     */
   def evaluate(solution: List[Node]): List[Double]
 
@@ -17,7 +17,7 @@ abstract class BaseProblem(val nodes: List[Node], val edges: List[Edge]) {
       visited_nodes: List[Node]
   ): Set[Node]
 
-  /** Function to evaluate diystance between nodes into doubles depending from
+  /** Function to evaluate distance between nodes into doubles depending from
     * problem dimension
     */
   def getHeuristicValue(edge: Edge): List[Double]

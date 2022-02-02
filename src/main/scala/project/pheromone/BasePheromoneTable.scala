@@ -8,15 +8,11 @@ class BasePheromoneTable(
     val increment: Double,
     val extinction: Double
 ) {
-  val pheromone = Map[Edge, Double]()
-  def construct_pheromone(): Unit = {
-    for (edge <- edges) pheromone + (edge -> 0)
-  }
+  val pheromone = Map[Edge, List[Double]]()
+  def construct_pheromone(): Unit = edges.foreach(pheromone.update(_, 0))
   construct_pheromone()
 
-  def getPheromone(edge: Edge): Double = {
-    return pheromone(edge)
-  }
+  def getPheromone(edge: Edge): List[Double] = pheromone(edge)
 
   def pheromoneUpdate(solution: BaseSolution): Unit = {
     for (nodePair <- solution.solution.sliding(2)) {
