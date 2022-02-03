@@ -30,12 +30,13 @@ about functions that must be implemented to run algorithm.</p>
 
 Needed steps:
 1. Use `config.yaml` file to determine problem files. Example:  
-<code>
+
+```
 problem:
-  - mtsp//dimacs_15_a.tsp  
-  - mtsp//dimacs_15_b.tsp  
-  - mtsp//dimacs_15_c.tsp  
-  </code>  
+  - mtsp//dimacs_15_a.tsp <br>
+  - mtsp//dimacs_15_b.tsp <br>
+  - mtsp//dimacs_15_c.tsp <br>
+```
 2. `Main.scala` define all remaining parameters
 
 
@@ -43,10 +44,10 @@ problem:
 ---
 
 #### Authors:
-<p><i>Krzysztof Tylka-Suleja [mailto](mailto:tylkasuleja@student.agh.edu.pl)<br>
-Tymoteusz Dobrzański [mailto](mailto:tdobrzanski@student.agh.edu.pl)<br></i></p>
+<p>Krzysztof Tylka-Suleja <i> Email: tylkasuleja@student.agh.edu.pl </i><br>
+Tymoteusz Dobrzański <i> Email: tdobrzanski@student.agh.edu.pl </i><br></p>
 
 In cooperation with:<br>
-<p><i>Aleksander Byrski [mailto](mailto:olekb@agh.edu.pl)<br>
-Mateusz Starzec [mailto](mailto:starzec.mateusz@gmail.com)<br>
-Grażyna Starzec [mailto](mailto:gstarzec@agh.edu.pl)<br></i></p>
+<p>Aleksander Byrski <i> Email: olekb@agh.edu.pl </i> <br>
+Mateusz Starzec <i> Email: starzec.mateusz@gmail.com </i><br>
+Grażyna Starzec <i> Email: gstarzec@agh.edu.pl </i><br></p>
