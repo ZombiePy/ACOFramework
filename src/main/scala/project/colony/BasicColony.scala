@@ -11,6 +11,9 @@ import scala.util.Random
 import project.pheromone.BasePheromoneTable
 
 class BasicColony(
+    alpha: Double,
+    beta: Double,
+    random: Random,
     ant_numb: Int,
     problem: BaseProblem,
     pheromoneTable: BasePheromoneTable,
@@ -28,8 +31,11 @@ class BasicColony(
           startingNode = startingNode,
           problem = problem,
           decision = new BasicDecisionAlgorithm(
+            alpha,
+            beta,
             problem,
-            pheromoneTable
+            pheromoneTable,
+            random
           ),
           distanceWeights = distanceWeights,
           pheromoneWeights = pheromoneWeights

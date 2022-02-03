@@ -3,65 +3,54 @@ package project.decision
 import project.graph.{Edge, Node}
 import project.pheromone.BasePheromoneTable
 import project.problem.BaseProblem
-
+import scala.util.Random
 class BasicDecisionAlgorithm(
+    alpha: Double,
+    beta: Double,
     problem: BaseProblem,
-    pheromoneTable: BasePheromoneTable
+    pheromoneTable: BasePheromoneTable,
+    val random: Random
 ) extends BaseDecisionAlgorithm(problem) {
 
-  // def getPossibleNodes(
-  //     visited_nodes: List[Node]
-  // ): List[Node] = problem.getPossibleMoves(visited_nodes).toList
-
-  // def assessment(
-  //     edgeToPheromone: Map[(CityName, CityName), Double],
-  //     edgeToDistance: Map[(CityName, CityName), Double],
-  //     alpha: Double,
-  //     beta: Double,
-  //     notVisied: Seq[CityName]
-  // )(edge: Edge): Double = {
-  //   val smth = pheromoneTable.getPheromone(edge) zip problem.getDistance(
-  //     edge
-  //   ) zip weights
-  //   val numerator: Double =
-  //     Math.pow(pheromoneTable.getPheromone(edge), alpha) * Math.pow(
-  //       1.0 / problem.getDistance(edge),
-  //       beta
-  //     )
-  //   val denominator: Double = notVisied.map { l =>
-  //     Math.pow(edgeToPheromone(i, l), alpha) * Math.pow(
-  //       1.0 / edgeToDistance(i, l),
-  //       beta
-  //     )
-  //   }.sum
-  //   numerator / denominator
-  // }
-
-  // /** Getting probabilities based on pheromone and cost of edge
-  //   */
-  // def getProbabilities(
-  //     current_node: Node,
-  //     possible_moves: List[Node]
-  // ): Map[Node, Double] = {
-  //   (for {
-  //     m <- possible_moves
-  //   } yield {
-  //     val ass: (CityName, CityName) => Double =
-  //       assessment(edgeToPheromone, edgeToDistance, alpha, beta, notVisied)
-  //     val mAsses: Double = ass(i, m)
-  //     val sumAsses: Double = notVisied.map { n => ass(i, n) }.sum
-  //     (m, mAsses / sumAsses)
-  //   }).toMap
-
-  //   ???
-  // }
-  def decide(
+  /** calculate heuristic and pheromone value in standard way
+    */
+  def other_asses(
+      alpha: Double,
+      beta: Double,
+      pheromoneWeights: List[Double],
+      distanceWeights: List[Double]
+  )(edge: Edge): Double = {
+    val pheromone =
+      pheromoneTable.getPheromone(edge).zip(pheromoneWeights).map(_ * _).sum
+    val heuristic =
+      problem.getHeuristicValue(edge).zip(distanceWeights).map(_ * _).sum
+    Math.pow(pheromone, alpha) * Math.pow(
+      1.0 / heuristic,
+      beta
+    )
+  }
+  override def decide(
       visitedNodes: List[Node],
       pheromoneWeights: List[Double],
       distanceWeights: List[Double]
   ): Node = {
-    // val possible_moves = getPossibleNodes(visited_nodes)
+    val initialized_asses =
+      other_asses(alpha, beta, pheromoneWeights, distanceWeights)
+    val possibleMoves = problem
+      .getPossibleMoves(visitedNodes)
+      .toList
+      .map(Edge(visitedNodes.last, _))
+      .map(edge => (edge, initialized_asses(edge)))
 
-    ???
+    val sumOfWeights = possibleMoves.map(_._2).sum
+    val selected_random = random.nextDouble() * sumOfWeights
+    var sum = 0.0
+    for { (move, weight) <- possibleMoves } {
+      sum += weight
+      if (selected_random < weight) {
+        return move.node2
+      }
+    }
+    throw new RuntimeException("Impossible state during deciding!")
   }
 }

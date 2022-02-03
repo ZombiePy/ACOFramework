@@ -6,6 +6,7 @@ import project.colony.BasicColony
 import project.solution.BaseSolution
 import project.repo.BasicSolutionRepo
 import project.pheromone.BasicPheromoneTable
+import scala.util.Random
 
 class BasicAlgorithm(
     ant_numb: Int,
@@ -16,6 +17,8 @@ class BasicAlgorithm(
 
   override def run(): Unit = {
     val increment = 1
+    val alpha = 1.0
+    val beta = 3.0
     val extinction = 0.5
     val distanceWeights = List(0.34, 0.33, 0.33)
     val pheromoneWeights = List(0.34, 0.33, 0.33)
@@ -25,7 +28,11 @@ class BasicAlgorithm(
       extinction,
       pheromoneWeights.size
     )
+    val rnd = Random(1337)
     val colony = BasicColony(
+      alpha,
+      beta,
+      rnd,
       ant_numb,
       problem,
       pheromone,
