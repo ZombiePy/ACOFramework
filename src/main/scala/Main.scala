@@ -7,7 +7,9 @@ import scala.beans.BeanProperty
 import java.io.FileInputStream
 import tsp.TspReader
 import tsp.TspsToMtsp
+import tsp.TspToProblem
 import project.algorithm.BasicAlgorithm
+import project.algorithm.TspSolver
 
 object Main {
   def main(args: Array[String]): Unit = {
@@ -21,10 +23,12 @@ object Main {
     } yield {
       TspReader.read(new File("src//main//resources//" ++ file))
     }
-    val (reverseNameMap, mtsp) = TspsToMtsp(tsps)
+//    val (reverseNameMap, mtsp) = TspsToMtsp(tsps)
+    val (reverseNameMap, tsp) = TspToProblem(tsps.head)
     val ants_number = 100
-    val algorithm_iterations = 10
-    val algo = BasicAlgorithm(ants_number, mtsp, algorithm_iterations)
+    val algorithm_iterations = 100
+//    val algo = BasicAlgorithm(ants_number, mtsp, algorithm_iterations)
+    val algo = TspSolver(ants_number, tsp, algorithm_iterations)
     algo.run()
   }
 }
