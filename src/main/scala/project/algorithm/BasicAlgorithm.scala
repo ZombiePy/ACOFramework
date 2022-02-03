@@ -18,7 +18,7 @@ class BasicAlgorithm(
   override def run(): Unit = {
     val increment = 1
     val alpha = 1.0
-    val beta = 3.0
+    val beta = 0.5
     val extinction = 0.5
     val distanceWeights = List(0.34, 0.33, 0.33)
     val pheromoneWeights = List(0.34, 0.33, 0.33)
@@ -41,6 +41,11 @@ class BasicAlgorithm(
     )
     for (iteration <- 0 until iterations) {
       val soutions: List[BaseSolution] = colony.run()
+      println(s"Step ${iteration}")
+
+      println(
+        soutions.map(_.evaluation.zip(distanceWeights).map(_ * _).sum).min
+      )
       // solutionRepo.add_solutions(iteration, solutions)
     }
   }

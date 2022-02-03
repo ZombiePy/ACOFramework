@@ -21,7 +21,7 @@ object Main {
     } yield {
       TspReader.read(new File("src//main//resources//" ++ file))
     }
-    val mtsp = TspsToMtsp(tsps)
+    val (reverseNameMap, mtsp) = TspsToMtsp(tsps)
     val ants_number = 100
     val algorithm_iterations = 10
     val algo = BasicAlgorithm(ants_number, mtsp, algorithm_iterations)

@@ -46,12 +46,12 @@ class BasicColony(
   }
 
   override def run() = {
-    var solutions: List[BaseSolution] = List[BaseSolution]()
+    val solutions = ListBuffer[BaseSolution]()
     for (ant <- ants) {
       val solution: BaseSolution = ant.run()
-      solutions :+ solution
+      solutions.append(solution)
     }
-    solutions
+    solutions.toList
   }
 
   def pheromoneUpdate(solutions: List[BaseSolution]) = {

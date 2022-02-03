@@ -12,7 +12,6 @@ abstract class BaseAnt(
     val decision: BaseDecisionAlgorithm
 ) {
   var currentNode: Node = startingNode
-  var visitedNodes: List[Node] = List()
 
   /** Function that make decision about next move of ant change currentNode to
     * chosen one and add it to visitedNodes list

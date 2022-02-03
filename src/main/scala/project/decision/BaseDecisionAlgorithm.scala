@@ -14,6 +14,6 @@ abstract class BaseDecisionAlgorithm(val problem: BaseProblem) {
       visitedNodes: List[Node],
       pheromoneWeights: List[Double],
       distanceWeights: List[Double]
-  ): Node
+  ): Option[Node]
 
 }

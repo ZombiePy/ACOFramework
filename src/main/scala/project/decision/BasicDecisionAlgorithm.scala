@@ -14,7 +14,7 @@ class BasicDecisionAlgorithm(
 
   /** calculate heuristic and pheromone value in standard way
     */
-  def other_asses(
+  def assesment(
       alpha: Double,
       beta: Double,
       pheromoneWeights: List[Double],
@@ -28,29 +28,34 @@ class BasicDecisionAlgorithm(
       1.0 / heuristic,
       beta
     )
+
   }
   override def decide(
       visitedNodes: List[Node],
       pheromoneWeights: List[Double],
       distanceWeights: List[Double]
-  ): Node = {
-    val initialized_asses =
-      other_asses(alpha, beta, pheromoneWeights, distanceWeights)
+  ): Option[Node] = {
+    val initialized_assesment =
+      assesment(alpha, beta, pheromoneWeights, distanceWeights)
     val possibleMoves = problem
       .getPossibleMoves(visitedNodes)
       .toList
+    if (possibleMoves.size == 0) {
+      return None
+    }
+    val edgesWithCost = possibleMoves
       .map(Edge(visitedNodes.last, _))
-      .map(edge => (edge, initialized_asses(edge)))
+      .map(edge => (edge, initialized_assesment(edge)))
 
-    val sumOfWeights = possibleMoves.map(_._2).sum
+    val sumOfWeights = edgesWithCost.map(_._2).sum
     val selected_random = random.nextDouble() * sumOfWeights
     var sum = 0.0
-    for { (move, weight) <- possibleMoves } {
+    for { (move, weight) <- edgesWithCost } {
       sum += weight
-      if (selected_random < weight) {
-        return move.node2
+      if (selected_random < sum) {
+        return Some(move.node2)
       }
     }
-    throw new RuntimeException("Impossible state during deciding!")
+    throw RuntimeException("Program should never reach here")
   }
 }
