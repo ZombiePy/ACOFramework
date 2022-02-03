@@ -18,7 +18,7 @@ class BasicAlgorithm(
   override def run(): Unit = {
     val increment = 1
     val alpha = 1.0
-    val beta = 0.5
+    val beta = 3
     val extinction = 0.5
     val distanceWeights = List(0.34, 0.33, 0.33)
     val pheromoneWeights = List(0.34, 0.33, 0.33)
