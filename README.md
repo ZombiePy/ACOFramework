@@ -32,10 +32,10 @@ Needed steps:
 1. Use `config.yaml` file to determine problem files. Example:  
 <code>
 problem:
-  - mtsp//dimacs_15_a.tsp
-  - mtsp//dimacs_15_b.tsp
-  - mtsp//dimacs_15_c.tsp
-  </code>
+  - mtsp//dimacs_15_a.tsp  
+  - mtsp//dimacs_15_b.tsp  
+  - mtsp//dimacs_15_c.tsp  
+  </code>  
 2. `Main.scala` define all remaining parameters
 
 
@@ -43,10 +43,10 @@ problem:
 ---
 
 #### Authors:
-<p><i>Krzysztof Tylka-Suleja <tylkasuleja@student.agh.edu.pl><br>
-Tymoteusz Dobrzański <tdobrzanski@student.agh.edu.pl><br></i></p>
+<p><i>Krzysztof Tylka-Suleja [mailto](mailto:tylkasuleja@student.agh.edu.pl)<br>
+Tymoteusz Dobrzański [mailto](mailto:tdobrzanski@student.agh.edu.pl)<br></i></p>
 
 In cooperation with:<br>
-<p><i>Aleksander Byrski <olekb@agh.edu.pl><br>
-Mateusz Starzec <starzec.mateusz@gmail.com><br>
-Grażyna Starzec <gstarzec@agh.edu.pl><br></i></p>
+<p><i>Aleksander Byrski [mailto](mailto:olekb@agh.edu.pl)<br>
+Mateusz Starzec [mailto](mailto:starzec.mateusz@gmail.com)<br>
+Grażyna Starzec [mailto](mailto:gstarzec@agh.edu.pl)<br></i></p>
