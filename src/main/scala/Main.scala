@@ -8,6 +8,7 @@ import java.io.FileInputStream
 import tsp.TspReader
 import tsp.TspsToMtsp
 import tsp.TspToProblem
+import tsp.Tsp
 import project.algorithm.BasicAlgorithm
 import project.algorithm.TspSolver
 
