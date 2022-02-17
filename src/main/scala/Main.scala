@@ -7,24 +7,57 @@ import scala.beans.BeanProperty
 import java.io.FileInputStream
 import tsp.TspReader
 import tsp.TspsToMtsp
+import tsp.TspToProblem
+import tsp.Tsp
+import project.algorithm.BasicAlgorithm
+import project.algorithm.TspSolver
+import project.algorithm.BaseAlgorithm
 
 object Main {
   def main(args: Array[String]): Unit = {
-    val filename = "src\\main\\config.yaml"
+    println(System.getProperty("user.dir"))
+    val filename = "src//main//config.yaml"
     val input = new FileInputStream(new File(filename))
     val yaml = new Yaml(new Constructor(classOf[ProblemConfig]))
+    val ants_number = 100
+    val algorithm_iterations = 100
     val e = yaml.load(input).asInstanceOf[ProblemConfig]
-    val tsps = for {
-      file <- asScalaBuffer(e.problem)
-    } yield {
-      TspReader.read(new File("src\\main\\resources\\" ++ file))
+    e.problemType match {
+      case "tsp" => {
+        val tsp = TspReader.read(
+          new File(
+            "src//main//resources//" ++ asScalaBuffer(e.problemFiles).head
+          )
+        )
+        val (reverseNameMap, tspProblem) = TspToProblem(tsp)
+        val algo = TspSolver(ants_number, tspProblem, algorithm_iterations)
+        algo.run()
+      }
+      case "mtsp" => {
+        val tsps = for {
+          file <- asScalaBuffer(e.problemFiles)
+        } yield {
+          TspReader.read(new File("src//main//resources//" ++ file))
+        }
+        val (reverseNameMap, mtspProblem) = TspsToMtsp(tsps)
+        val algo =
+          BasicAlgorithm(ants_number, mtspProblem, algorithm_iterations)
+        algo.run()
+      }
+      case _ =>
+        throw NotImplementedError(
+          "Your method from config.yaml is not implemented!"
+        )
     }
-    val mtsp = TspsToMtsp(tsps)
+
+//
+
   }
 }
 class ProblemConfig {
-  @BeanProperty var problem = new java.util.ArrayList[String]()
+  @BeanProperty var problemType: String = null
+  @BeanProperty var problemFiles = new java.util.ArrayList[String]()
   override def toString: String = {
-    return String.join(",", problem)
+    return String.join(",", problemFiles)
   }
 }

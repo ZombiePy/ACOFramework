@@ -8,7 +8,7 @@ import project.repo.BasicSolutionRepo
 import project.pheromone.BasicPheromoneTable
 import scala.util.Random
 
-class BasicAlgorithm(
+class TspSolver(
     antNumb: Int,
     val problem: BaseProblem,
     val iterations: Int
@@ -20,8 +20,8 @@ class BasicAlgorithm(
     val alpha = 1.0
     val beta = 3
     val extinction = 0.5
-    val distanceWeights = List(0.34, 0.33, 0.33)
-    val pheromoneWeights = List(0.34, 0.33, 0.33)
+    val distanceWeights = List(1.0)
+    val pheromoneWeights = List(1.0)
     val pheromone = BasicPheromoneTable(
       problem.edges,
       increment,
@@ -46,7 +46,13 @@ class BasicAlgorithm(
       println(
         soutions.map(_.evaluation.zip(distanceWeights).map(_ * _).sum).min
       )
-      // solutionRepo.add_solutions(iteration, solutions)
+      solutionRepo.add_solutions(iteration, soutions)
+      colony.pheromoneUpdate(soutions
+        .sortBy(_.evaluation.sum)
+        .take(10))
     }
+    println(solutionRepo)
   }
 }
+
+

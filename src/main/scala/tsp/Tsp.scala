@@ -1,5 +1,9 @@
 package tsp
 
+import project.graph.Node
+import project.problem.TspProblem
+import tsp.nodeCoordSectionToMatrix
+
 sealed trait TspType
 case object TSPTspType extends TspType
 

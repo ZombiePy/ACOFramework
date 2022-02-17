@@ -1,8 +1,8 @@
 package project.solution
 
-import org.graalvm.compiler.graph.Node
+import project.graph.Node
 
-abstract class BaseSolution(nodes: List[Node], value: Float) {
+class BaseSolution(nodes: List[Node], value: List[Double]) {
   val solution: List[Node] = nodes
-  val evaluation: Float = value
+  val evaluation: List[Double] = value
 }

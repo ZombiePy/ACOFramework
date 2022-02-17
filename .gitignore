@@ -5,5 +5,4 @@
 .history
 .bloop
 target
-project
-!scala/project
+/project

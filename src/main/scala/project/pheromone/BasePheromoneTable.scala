@@ -1,10 +1,14 @@
 package project.pheromone
 
 import project.graph.{Edge, Node}
-class BasePheromoneTable(val edges: List[Edge]) {
-  val pheromone = Map[Edge, Int]()
-  def construct_pheromone(): Unit = {
-    for (edge <- edges) pheromone + (edge -> 0)
-  }
-  construct_pheromone()
+import project.solution.BaseSolution
+import scala.collection.mutable.{Map}
+abstract class BasePheromoneTable {
+
+  def getPheromone(edge: Edge): List[Double]
+
+  def pheromoneUpdate(solution: BaseSolution): Unit
+
+  def pheromoneExtinction(): Unit
+
 }
