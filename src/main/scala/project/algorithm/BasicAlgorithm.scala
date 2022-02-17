@@ -9,7 +9,7 @@ import project.pheromone.BasicPheromoneTable
 import scala.util.Random
 
 class BasicAlgorithm(
-    ant_numb: Int,
+    antNumb: Int,
     val problem: BaseProblem,
     val iterations: Int
 ) extends BaseAlgorithm {
@@ -33,7 +33,7 @@ class BasicAlgorithm(
       alpha,
       beta,
       rnd,
-      ant_numb,
+      antNumb,
       problem,
       pheromone,
       distanceWeights,
