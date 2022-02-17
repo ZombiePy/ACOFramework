@@ -32,11 +32,17 @@ Needed steps:
 1. Use `config.yaml` file to determine problem files. Example:  
 
 ```
-problem:
+problemType: mtsp
+problemFiles:
   - mtsp//dimacs_15_a.tsp <br>
   - mtsp//dimacs_15_b.tsp <br>
   - mtsp//dimacs_15_c.tsp <br>
 ```
+
+Where:  
+- `problemType` - type of optimization problem (currently available `tsp` or `mtsp`)
+- `problemFiles` - input problem files
+
 2. Used algorithm define all remaining parameters. Quick description:
 - `increment` - defines value that will be added to pheromone table when ant pass selected edge
 - `alpha` - power used in pheromone calculation as ![eqation](https://latex.codecogs.com/svg.image?pheromone^{alpha})
@@ -44,8 +50,11 @@ problem:
 - `extinction` - percentage loss of pheromone value after each algorithm iteration
 - `distanceWeights` - weights used to flatten distances in multi objective calculations
 - `pheromoneWeights` - weights used to flatten pheromone values
-- `antNumb` - number of ants used for optimization
-- `iteration` - number of iterations that algorithm can evaluate
+- `antNumb` - number of ants used for optimization (declared in `Main.scala`)
+- `iteration` - number of iterations that algorithm can evaluate (declared in `Main.scala`)
+- `rnd` - random number generator (you can set seed to create more deterministic results)
+- `takenAntsToPheromoneUpdate` - used only in TSP problems, determine how many ants update
+pheromone table (based on fitness value)
 
 3. Run `Main.scala` to run algorithm, results will be printed in console.
 This file only read the selected problem and map it into `BaseProblem` instance, 
