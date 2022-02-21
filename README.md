@@ -73,6 +73,41 @@ that can be further evaluated.
 [here](https://sites.google.com/site/kflorios/motsp)
 - Paquete 100 - dataset with 100 dimensions in 2 objectives (A, B) [here](https://sites.google.com/site/kflorios/motsp)
 
+---
+
+### 4. Results:
+
+Testing results:  
+On included into Framework dataset `Berlin 52`, we performed test run. Here are the results:  
+Data set visualization:  
+![Berlin Dataset Visualization](res/Berlin.png?style=centerme)  
+Selected parameters:  
+
+| Parameter | Value |
+| ----------- | ----------- |
+| increment | 5 |
+| alpha | 1 |
+| beta | 1 |
+| extinction | 0.2 |
+| distanceWeights | 1.0 |
+| pheromoneWeights | 1.0 |
+| takenAntsToPheromoneUpdate | 30 |
+| ants_number | 30 |
+| algorithm_iterations | 100 |
+
+Results:  
+![Run Visualization](res/Berlin1.png)
+![Fitness Visualization](res/Run1.png)  
+Best Fitness: 8356.66  
+`NOTE` Currently there is no visualization methods in Framework!
+
+---
+
+### 5. Possible Further Work:
+
+- [ ] Adding More Algorithms to solve different problems
+- [ ] Adding Visualization Methods (e.g. Front Pareto)
+
 
 ---
 
