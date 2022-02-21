@@ -48,8 +48,8 @@ Where:
 - `alpha` - power used in pheromone calculation as ![eqation](https://latex.codecogs.com/svg.image?pheromone^{alpha})
 - `beta` - power used in distance heuristic as ![eqation](https://latex.codecogs.com/svg.image?%5Cfrac%7B1%7D%7Bdistance%5E%7Bbeta%7D%7D)
 - `extinction` - percentage loss of pheromone value after each algorithm iteration
-- `distanceWeights` - weights used to flatten distances in multi objective calculations
-- `pheromoneWeights` - weights used to flatten pheromone values
+- `distanceWeights` - weights used to flatten distances in multi objective calculations, should sum up to 1
+- `pheromoneWeights` - weights used to flatten pheromone values, should sum up to 1
 - `antNumb` - number of ants used for optimization (declared in `Main.scala`)
 - `iteration` - number of iterations that algorithm can evaluate (declared in `Main.scala`)
 - `rnd` - random number generator (you can set seed to create more deterministic results)
