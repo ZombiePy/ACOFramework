@@ -45,7 +45,7 @@ class TspSolver(
 //      println(s"Step ${iteration}")
 
       println(
-        soutions.map(_.evaluation.zip(distanceWeights).map(_ * _).sum).min + ','
+        soutions.map(_.evaluation.sum).min
       )
       solutionRepo.add_solutions(iteration, soutions)
       colony.pheromoneUpdate(soutions
