@@ -17,10 +17,4 @@ abstract class BaseAnt(
     * chosen one and add it to visitedNodes list
     */
   def run(): BaseSolution
-
-  /** Prepare solution from gathered information needs to send information to
-    * problem to update pheromone
-    */
-  def evaluateSolution(): BaseSolution
-
 }

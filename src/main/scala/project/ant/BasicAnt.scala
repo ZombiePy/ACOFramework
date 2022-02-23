@@ -38,8 +38,4 @@ class BasicAnt(
     )
   }
 
-  override def evaluateSolution(): BaseSolution = {
-    ???
-    // new BaseSolution(visitedNodes, problem.evaluate(visitedNodes))
-  }
 }
