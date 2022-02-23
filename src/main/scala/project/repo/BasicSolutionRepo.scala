@@ -2,8 +2,8 @@ package project.repo
 
 import project.solution.BaseSolution
 import scala.collection.mutable.Map
-class BasicSolutionRepo extends BaseSolutionRepo {
-  var solutions: Map[Int, List[BaseSolution]] = Map[Int, List[BaseSolution]]()
+class BasicSolutionRepo
+    extends BaseSolutionRepo(Map[Int, List[BaseSolution]]()) {
 
   override def add_solutions(
       iteration: Int,
@@ -17,8 +17,12 @@ class BasicSolutionRepo extends BaseSolutionRepo {
       val bestSolution = solutions(key)
         .sortBy(_.evaluation.sum)
         .head
-      string = string.concat("Best Solution: \n" + bestSolution.solution.toString + "\n")
-      string = string.concat("Evaluation: \n" + bestSolution.evaluation.toString + "\n")
+      string = string.concat(
+        "Best Solution: \n" + bestSolution.solution.toString + "\n"
+      )
+      string = string.concat(
+        "Evaluation: \n" + bestSolution.evaluation.toString + "\n"
+      )
     }
     string
   }

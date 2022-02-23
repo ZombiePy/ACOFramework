@@ -3,7 +3,8 @@ import project.graph.{Edge, Node}
 class Mtsp(nodes: List[Node], val matrices: List[Map[Edge, Double]])
     extends BaseProblem(
       nodes,
-      edges = matrices.head.map(_._1).toList
+      edges = matrices.head.map(_._1).toList,
+      matrices.length
     ) {
   val allNodes = nodes.toSet
   assert(allNodes.size == nodes.size)

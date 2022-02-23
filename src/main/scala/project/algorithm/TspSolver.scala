@@ -7,6 +7,7 @@ import project.solution.BaseSolution
 import project.repo.BasicSolutionRepo
 import project.pheromone.BasicPheromoneTable
 import scala.util.Random
+import project.repo.BaseSolutionRepo
 
 class TspSolver(
     antNumb: Int,
@@ -15,7 +16,7 @@ class TspSolver(
 ) extends BaseAlgorithm {
   val solutionRepo = new BasicSolutionRepo()
 
-  override def run(): Unit = {
+  override def run(): BaseSolutionRepo = {
     val increment = 5
     val alpha = 1
     val beta = 1
@@ -48,12 +49,13 @@ class TspSolver(
         soutions.map(_.evaluation.sum).min
       )
       solutionRepo.add_solutions(iteration, soutions)
-      colony.pheromoneUpdate(soutions
-        .sortBy(_.evaluation.sum)
-        .take(takenAntsToPheromoneUpdate))
+      colony.pheromoneUpdate(
+        soutions
+          .sortBy(_.evaluation.sum)
+          .take(takenAntsToPheromoneUpdate)
+      )
     }
     println(solutionRepo)
+    solutionRepo
   }
 }
-
-

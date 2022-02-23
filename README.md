@@ -76,7 +76,7 @@ that can be further evaluated.
 ---
 
 ### 4. Results:
-
+#### TSP
 Testing results:  
 On included into Framework dataset `Berlin 52`, we performed test run. Here are the results:  
 Data set visualization:  
@@ -100,6 +100,28 @@ Results:
 ![Fitness Visualization](res/Run1.png)  
 Best Fitness: 8356.66  
 `NOTE` Currently there is no visualization methods in Framework!
+#### MTSP
+On included into Framework dataset `portgen-100-101`(paquete_euclidAB100) and `lust_kroA100`. We performed test run. Here are the results
+
+Selected parameters:  
+
+| Parameter | Value |
+| ----------- | ----------- |
+| increment | 5 |
+| alpha | 1 |
+| beta | 1 |
+| extinction | 0.2 |
+| distanceWeights | [0.5,0.5] |
+| pheromoneWeights | [0.5,0.5] |
+| takenAntsToPheromoneUpdate | 100 |
+| ants_number | 100 |
+| algorithm_iterations | 100 |
+
+Results:  
+![Run Visualization](res/Moaco_optimization_rate.png)
+![Pareto set Visualization](res/Moaco_pareto_front.png) 
+
+
 
 ---
 

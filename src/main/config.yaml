@@ -1,5 +1,9 @@
-problemType: tsp
+problemType: mtsp
 problemFiles:
-  - mtsp//dimacs_15_a.tsp
-  - mtsp//dimacs_15_b.tsp
-  - mtsp//dimacs_15_c.tsp
+  - mtsp//lust_kroA100.tsp
+  - mtsp//lust_kroB100.tsp
+  # - mtsp//lust_euclidA100.tsp
+  # - mtsp//lust_euclidB100.tsp
+  # - mtsp//dimacs_15_a.tsp
+  # - mtsp//dimacs_15_b.tsp
+  # - mtsp//dimacs_15_c.tsp

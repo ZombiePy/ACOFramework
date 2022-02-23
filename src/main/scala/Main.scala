@@ -12,7 +12,7 @@ import tsp.Tsp
 import project.algorithm.BasicAlgorithm
 import project.algorithm.TspSolver
 import project.algorithm.BaseAlgorithm
-
+import pareto.getParetoFrontMin
 object Main {
   def main(args: Array[String]): Unit = {
     println(System.getProperty("user.dir"))
@@ -49,8 +49,6 @@ object Main {
           "Your method from config.yaml is not implemented!"
         )
     }
-
-//
 
   }
 }

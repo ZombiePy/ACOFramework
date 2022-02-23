@@ -4,7 +4,8 @@ import project.graph.{Edge, Node}
 class TspProblem(nodes: List[Node], val matrix: Map[Edge, Double])
     extends BaseProblem(
       nodes,
-      edges = matrix.map(_._1).toList
+      edges = matrix.map(_._1).toList,
+      1
     ) {
   val allNodes = nodes.toSet
   assert(allNodes.size == nodes.size)
